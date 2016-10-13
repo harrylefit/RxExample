@@ -8,16 +8,12 @@ import android.support.v7.widget.AppCompatTextView;
 
 import com.example.harry.rxexample.model.Cat;
 import com.example.harry.rxexample.model.Person;
-import com.jakewharton.rxbinding.widget.RxTextView;
-import com.jakewharton.rxbinding.widget.TextViewAfterTextChangeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.functions.Func2;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,19 +65,5 @@ public class MainActivity extends AppCompatActivity {
         //TODO 5. neu text cua tvInput thay doi va co chua chuoi ki tu 'aaa' -> log ra 'Yeah', nguoc lai 'Ops' bang tvLog
 
         //TODO 6. dung tvInput log ra : 'Valid' khi ca tvInput vaf tvInput2 deu chua chuoi ki tu 'xxx', nguoc lai log ra: 'Invalid'
-        Observable.combineLatest(RxTextView.afterTextChangeEvents(tvInput), RxTextView.afterTextChangeEvents(tvInput2), new Func2<TextViewAfterTextChangeEvent, TextViewAfterTextChangeEvent, Boolean>() {
-            @Override
-            public Boolean call(TextViewAfterTextChangeEvent event, TextViewAfterTextChangeEvent event2) {
-                return event.editable().toString().contains("xxx") && event.editable().toString().contains("xxx");
-            }
-        }).subscribe(aBoolean -> {
-            if (aBoolean) {
-                tvLog.setText("Valid");
-            } else {
-                tvLog.setText("InValid");
-            }
-        }, throwable -> {
-            tvLog.setText(throwable.getLocalizedMessage());
-        });
     }
 }
