@@ -65,5 +65,6 @@ public class MainActivity extends AppCompatActivity {
         //TODO 5. neu text cua tvInput thay doi va co chua chuoi ki tu 'aaa' -> log ra 'Yeah', nguoc lai 'Ops' bang tvLog
 
         //TODO 6. dung tvInput log ra : 'Valid' khi ca tvInput vaf tvInput2 deu chua chuoi ki tu 'xxx', nguoc lai log ra: 'Invalid'
+
     }
 }
