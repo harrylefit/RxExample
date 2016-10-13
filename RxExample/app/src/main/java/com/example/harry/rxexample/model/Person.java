@@ -1,5 +1,7 @@
 package com.example.harry.rxexample.model;
 
+import java.util.List;
+
 /**
  * Created by Harry on 10/9/16.
  */
@@ -7,10 +9,19 @@ package com.example.harry.rxexample.model;
 public class Person {
     private String name;
     private int age;
+    private List<Cat> cats;
 
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public List<Cat> getCats() {
+        return cats;
+    }
+
+    public void setCats(List<Cat> cats) {
+        this.cats = cats;
     }
 
     public String getName() {
